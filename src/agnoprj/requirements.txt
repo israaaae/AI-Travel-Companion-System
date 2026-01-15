@@ -1,0 +1,9 @@
+requests
+agno
+fastapi
+uvicorn
+openai
+pydantic
+python-dotenv
+sqlalchemy
+aiosqlite
