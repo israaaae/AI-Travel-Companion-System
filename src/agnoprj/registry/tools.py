@@ -1,11 +1,11 @@
-from tools.weather_tool import weather_hint
-from tools.date_tool import days_between
-from tools.budget_tool import estimate_budget
-from tools.fx_rate_tool import fx_rate
+from tools.search_flights_amadeus import search_flights_amadeus
+from tools.brightdata_tools import BrightDataTools
+from tools.apify_tools import ApifyTools
+from tools.duckduckgo_tools import DuckDuckGoTools
 
 TOOLS = {
-    "weather_hint": weather_hint,
-    "days_between": days_between,
-    "estimate_budget": estimate_budget,
-    "fx_rate": fx_rate,
+    "search_flights_amadeus": search_flights_amadeus,
+    "brightdata_tools": BrightDataTools,
+    "apify_tools": ApifyTools,
+    "duckduckgo_tools": DuckDuckGoTools,
 }

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Sequence
 from core import BaseAgent
 
-def build_research_agent(*, tools: Sequence[Any]):
+def research_agent(*, tools: Sequence[Any]):
     return BaseAgent(
         name="research_agent",
         role="Travel researcher",

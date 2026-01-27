@@ -16,10 +16,10 @@ def _team_model():
     return None
 
 
-def build_planning_team(*, members):
+def travel_team(*, members):
     return BaseTeam(
-        name="planning_team",
-        role="Planning team (research + budget)",
+        name="travel_team",
+        role="Travel team (research + booking + itinerary + support)",
         model=_team_model(),  # ✅ COMME DANS LA DOC: Team a un model
 
         members=list(members),

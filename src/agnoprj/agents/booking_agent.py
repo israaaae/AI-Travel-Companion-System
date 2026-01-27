@@ -2,17 +2,27 @@ from __future__ import annotations
 
 from typing import Any, Sequence
 from core import BaseAgent
+from tools.search_flights_amadeus import search_flights_amadeus
+from agno.tools.brightdata import BrightDataTools
+from agno.tools.apify import ApifyTools
+from agno.tools.duckduckgo import DuckDuckGoTools
+from datetime import datetime
 
-def build_budget_agent(*, tools: Sequence[Any]):
+def booking_agent(*, tools: Sequence[Any]):
     return BaseAgent(
-        name="budget_agent",
-        role="Budget estimator",
-        instructions=[
-            "You estimate a reasonable travel budget based on days, travelers, and style.",
-            "Use days_between then estimate_budget. If currency conversion is requested, use fx_rate.",
-            "Return ONLY a JSON object matching BudgetBreakdown fields when asked for budget output.",
-            "Always specify whether or not the budget includes international transportation."
-            "If destination = country, request/assume a main city."
+        name="Booking Agent",
+        tools=tools if tools is not None else [
+            search_flights_amadeus,  # Your Amadeus tool ✅
+            BrightDataTools(web_data_feed=True),  # Hotels
+            ApifyTools(actors=["compass/crawler-google-places"]),  # Restaurants
+            DuckDuckGoTools(),  # General search
         ],
-        tools=list(tools),
+        instructions=[
+            f"You're a booking assistant. Today is {datetime.now()}.",
+            "Use search_flights_amadeus for flight searches",
+            "Use BrightData for hotel bookings",
+            "Use ApifyTools for restaurant searches",
+        ],
+        show_tool_calls=True,
+        markdown=True,
     ).build()

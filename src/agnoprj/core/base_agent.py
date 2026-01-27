@@ -17,10 +17,6 @@ def _default_model():
         from agno.models.openai import OpenAIChat
         return OpenAIChat(id=model_id)
 
-    if provider == "anthropic":
-        from agno.models.anthropic import Claude
-        return Claude(id=model_id)
-
     if provider == "google":
         from agno.models.google import Gemini  # type: ignore
         return Gemini(id=model_id)

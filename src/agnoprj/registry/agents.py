@@ -1,19 +1,17 @@
 from registry.tools import TOOLS
-from agents.research_agent import build_research_agent
-from agents.budget_agent import build_budget_agent
-from agents.writer_agent import build_writer_agent
-
+from agents.research_agent import research_agent
+from agents.booking_agent import booking_agent
+from agents.itinerary_agent import itinerary_agent
+from agents.support_agent import support_agent
 
 def build_agents():
-    research = build_research_agent(tools=[TOOLS["weather_hint"]])
+    research = research_agent(tools=[TOOLS[""]])
 
-    budget = build_budget_agent(tools=[
-        TOOLS["days_between"],
-        TOOLS["estimate_budget"],
-        TOOLS["fx_rate"],
-    ])
+    budget = booking_agent(tools=[TOOLS["days_between"], TOOLS["estimate_budget"], TOOLS["fx_rate"]])
 
-    writer = build_writer_agent(tools=[])
+    writer = itinerary_agent(tools=[])
+
+    support = support_agent(tools=[])
 
     return {
         "research": research,
