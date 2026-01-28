@@ -43,7 +43,7 @@ By default this serves on:
 - **http://127.0.0.1:2222**
 
 
-### Optional: run the UI (agent-ui)
+### 3) Optional: run the UI (agent-ui)
 
 If you want the UI locally:
 
