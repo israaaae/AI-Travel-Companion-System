@@ -1,21 +1,8 @@
 from __future__ import annotations # Traite toutes les annotations de types comme des chaînes de caractères, pas comme des objets Python réels.
 
-"""
-🧠 Exemple SANS __future__
-class Agent:
-    def next(self) -> Workflow:
-        return Workflow()
-
-
-❌ ERREUR :
-
-NameError: name 'Workflow' is not defined
-
-Parce que Workflow n existe pas encore.
-"""
 from agno.db.sqlite import SqliteDb
-from core.config import SETTINGS
-from utils.paths import PATHS
+from agnoprj.core.config import SETTINGS
+from agnoprj.utils.paths import PATHS
 
 
 def get_sqlite_db() -> SqliteDb:

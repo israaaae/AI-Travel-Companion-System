@@ -3,12 +3,8 @@ __pycache__/
 *.py[codz]
 *$py.class
 
-/Users/Israe/AgnoPrj/agent-ui/
-
-/Users/Israe/AgnoPrj/agnoprj/agent-ui/
-
 # Local UI (Next.js) - ignore entire UI folder
-agnoprj/agent-ui/
+agent-ui/
 # C extensions
 *.so
 

@@ -2,9 +2,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from core import AgentOSFactory
-from registry import AGENTS, TEAMS, WORKFLOWS
-from utils.logging import LOGGER
+from agnoprj.core import AgentOSFactory
+from agnoprj.registry import AGENTS, TEAMS
+from agnoprj.utils.logging import LOGGER
 
 LOGGER.info("Starting AgentOS...")
 

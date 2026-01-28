@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from typing import Any, Sequence
-from core import BaseAgent
-from tools.search_flights_amadeus import search_flights_amadeus
+from agnoprj.core import BaseAgent
+from agnoprj.tools.search_flights_amadeus import search_flights_amadeus
 from agno.tools.brightdata import BrightDataTools
 from agno.tools.apify import ApifyTools
 from agno.tools.duckduckgo import DuckDuckGoTools

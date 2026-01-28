@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any, Sequence
 from agno.models.openai import OpenAIChat
-from core import BaseTeam
-from core.config import SETTINGS
+from agnoprj.core import BaseTeam
+from agnoprj.core.config import SETTINGS
 
 def _team_model():
     # même logique que tes agents
@@ -16,7 +16,7 @@ def _team_model():
     return None
 
 
-def travel_team(*, members):
+def build_travel_team(*, members):
     return BaseTeam(
         name="travel_team",
         role="Travel team (research + booking + itinerary + support)",
@@ -29,10 +29,14 @@ def travel_team(*, members):
             "When calling delegate_task_to_member, ALWAYS pass the EXACT same JSON string as the member input.",
             "Never send empty input. Never paraphrase. Do not wrap in markdown.",
             "1) Delegate to research_agent with the original JSON string.",
-            "2) Delegate to budget_agent with the original JSON string.",
+            "2) Delegate to booking_agent with the original JSON string.",
             "Return a short combined summary for the next step.",
         ],
         extra={"show_members_responses": True,
               "determine_input_for_members": False,
-                }        # ✅ COMME DANS LA DOC
+                }
     ).build()
+
+
+# Backward-compatible alias (older code may call travel_team())
+travel_team = build_travel_team

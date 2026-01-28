@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Type, TypeVar
 from pydantic import BaseModel
 
-from core.exceptions import ValidationError
+from agnoprj.core.exceptions import ValidationError
 
 T = TypeVar("T", bound=BaseModel)
 

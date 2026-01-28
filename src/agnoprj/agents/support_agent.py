@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from typing import Any, Sequence
-from core import BaseAgent
+from agnoprj.core import BaseAgent
 from agno.tools.duckduckgo import DuckDuckGoTools
 
 def support_agent(*, tools: Sequence[Any]):

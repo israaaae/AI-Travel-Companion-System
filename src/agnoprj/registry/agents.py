@@ -1,17 +1,17 @@
-from registry.tools import TOOLS
-from agents.research_agent import research_agent
-from agents.booking_agent import booking_agent
-from agents.itinerary_agent import itinerary_agent
-from agents.support_agent import support_agent
+from agnoprj.registry.tools import TOOLS
+from agnoprj.agents.research_agent import research_agent
+from agnoprj.agents.booking_agent import booking_agent
+from agnoprj.agents.itinerary_agent import itinerary_agent
+from agnoprj.agents.support_agent import support_agent
 
 def build_agents():
-    research = research_agent(tools=[TOOLS["DuckDuckGoTools"], TOOLS["OpenWeatherTools"]])
+    research = research_agent(tools=[TOOLS["duckduckgo"], TOOLS["openweather"]])
 
-    booking = booking_agent(tools=[TOOLS["search_flights_amadeus"], TOOLS["BrightDataTools"], TOOLS["ApifyTools"], TOOLS["DuckDuckGoTools"]])
+    booking = booking_agent(tools=[TOOLS["search_flights_amadeus"],TOOLS["brightdata"],TOOLS["apify_google_places"],TOOLS["duckduckgo"]])
 
-    itinerary = itinerary_agent(tools=[TOOLS["GoogleMapTools"], TOOLS["DuckDuckGoTools"]])
+    itinerary = itinerary_agent(tools=[TOOLS["google_maps"], TOOLS["duckduckgo"]])
 
-    support = support_agent(tools=[])
+    support = support_agent(tools=[TOOLS["duckduckgo"]])
 
     return {
         "research": research,

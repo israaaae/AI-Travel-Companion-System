@@ -4,9 +4,9 @@ from dataclasses import dataclass, field
 from typing import Any, Callable, Optional, Sequence
 
 from agno.agent import Agent
-from core.config import SETTINGS
-from core.db import get_sqlite_db
-from core.exceptions import AgentBuildError
+from agnoprj.core.config import SETTINGS
+from agnoprj.core.db import get_sqlite_db
+from agnoprj.core.exceptions import AgentBuildError
 
 
 def _default_model():

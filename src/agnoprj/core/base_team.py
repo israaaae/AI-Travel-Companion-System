@@ -2,13 +2,13 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, List, Optional, Sequence
 from agno.team import Team
-from core.exceptions import TeamBuildError
+from agnoprj.core.exceptions import TeamBuildError
 
 @dataclass
 class BaseTeam:
     name: str
     role: Optional[str] = None
-    model: Any = None  # ✅ AJOUT
+    model: Any = None 
     members: Sequence[Any] = field(default_factory=list)
     instructions: Optional[str | List[str]] = None
     tools: Optional[list[Any]] = None
@@ -19,7 +19,7 @@ class BaseTeam:
             kwargs = dict(
                 name=self.name,
                 role=self.role,
-                model=self.model,           # ✅ AJOUT
+                model=self.model,          
                 members=list(self.members),
                 instructions=self.instructions,
                 tools=self.tools,

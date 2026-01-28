@@ -3,7 +3,7 @@ from agno.tools.google_maps import GoogleMapTools
 from agno.tools.duckduckgo import DuckDuckGoTools
 from datetime import datetime
 from typing import Any, Sequence
-from core import BaseAgent
+from agnoprj.core import BaseAgent
 
 def itinerary_agent(*, tools: Sequence[Any]):
     return BaseAgent(
