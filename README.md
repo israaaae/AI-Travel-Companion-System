@@ -1,4 +1,4 @@
-# AgnoPrj (AI Travel Assistant)
+# AI Travel Companion Multi-Agent System
 
 ## What this project does (non‑technical)
 
