@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Sequence
 from core import BaseAgent
+from agno.tools.duckduckgo import DuckDuckGoTools
 
 def support_agent(*, tools: Sequence[Any]):
     return BaseAgent(
@@ -11,6 +12,8 @@ def support_agent(*, tools: Sequence[Any]):
             "You help with any questions or issues related to the travel plan.",
             "Use tools when helpful (e.g., search_flights_amadeus).",
         ],
-        tools=list(tools),
+        tools=tools if tools is not None else[
+            DuckDuckGoTools(),     # Free backup search
+        ],
 
     ).build()

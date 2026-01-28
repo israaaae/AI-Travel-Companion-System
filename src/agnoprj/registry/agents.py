@@ -5,18 +5,19 @@ from agents.itinerary_agent import itinerary_agent
 from agents.support_agent import support_agent
 
 def build_agents():
-    research = research_agent(tools=[TOOLS[""]])
+    research = research_agent(tools=[TOOLS["DuckDuckGoTools"], TOOLS["OpenWeatherTools"]])
 
-    budget = booking_agent(tools=[TOOLS["days_between"], TOOLS["estimate_budget"], TOOLS["fx_rate"]])
+    booking = booking_agent(tools=[TOOLS["search_flights_amadeus"], TOOLS["BrightDataTools"], TOOLS["ApifyTools"], TOOLS["DuckDuckGoTools"]])
 
-    writer = itinerary_agent(tools=[])
+    itinerary = itinerary_agent(tools=[TOOLS["GoogleMapTools"], TOOLS["DuckDuckGoTools"]])
 
     support = support_agent(tools=[])
 
     return {
         "research": research,
-        "budget": budget,
-        "writer": writer,
+        "booking": booking,
+        "itinerary": itinerary,
+        "support": support,
     }
 
 AGENTS = build_agents()
